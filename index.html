@@ -2,12 +2,52 @@
 <html>
 
 <head>
-  <title>Task 3</title>
+  <link rel='stylesheet' href='index.css' />
+  <link rel='stylesheet' href='task.css' />
+  <title>Task 03</title>
 </head>
 
 <body>
-  <h1>Header 1</h1>
-  <p>Paragraph</p>
+  <div class='container'>
+    <div class='man'>
+      <div class='head'></div>
+      <div class='lower-body'>
+        <div class='left hand'></div>
+        <div class='body'></div>
+        <div class='right hand'></div>
+      </div>
+      <div class='feet'>
+        <div class='left foot'></div>
+        <div class='right foot'></div>
+      </div>
+      <button id="jumpButton" class="btn">Jump</button>
+    </div>
+
+    <div class='background'>
+      <div class='sky'>
+        <div class='sun'></div>
+        <div class='moon'></div>
+      </div>
+      <div class='ground'></div>
+    </div>
+  </div>
 </body>
+
+<script>
+  const button = document.getElementById("jumpButton");
+  button.addEventListener("click", animationFunction);
+
+  function animationFunction(){
+    const parts = document.querySelectorAll(".head, .body, .hand, .foot");
+    parts.forEach(part => {
+      part.classList.add("jump");
+      
+      part.addEventListener("animationend", () => {
+      part.classList.remove("jump");
+    }, { once: true });
+
+    })
+  }
+</script>
 
 </html>
